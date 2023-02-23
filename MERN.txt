@@ -1,0 +1,16 @@
+❎ On installe express-generator ➡️ npm install -g express-generator
+❎On créé le projet ➡️ express --no-view MERN_PROJECT
+			   ➡️ cd MERN_PROJECT 
+❎On fait maintenant ➡️ npm install ➡️ npm start ➡️ localhost:3000
+
+❎Au niveau de app.js on va définir les routes, on a par défaut /users
+
+❎Maintenant, on va faire la cnx avec la bd ➡️ npm i mongoose --save
+							   ➡️ npm i nodemon
+							   ➡️ nodemon start
+							   ➡️ npm i dotenv
+❎Maintenant, on va définir les routes 
+
+➡️ On peut utiliser mongodb compass au lieu d'utiliser le site web 
+➡️ Converting circular structure to JSON --> on a oublier d'ajouter le 
+mot clé 'await' (async--> await)
