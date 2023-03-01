@@ -1,11 +1,16 @@
 const Users = require('../Models/User.Model')
-
+const validateUser = require('../Validation/Users.Validation')
 
 /* ADD USER */
 const AddUser = async (req, res)=>{
+    const {errors, isValid} =validateUser(req.body)
+
     try{
-        await Users.create(req.body) //puisque notre fonction est async, donc on doit faire le await --> on va creer le req.body
-        res.status(201).json({message: 'User added successfully !'})
+        if(!isValid){
+                res.status(404).json(errors)
+        }else{
+            await Users.create(req.body) //puisque notre fonction est async, donc on doit faire le await --> on va creer le req.body
+            res.status(201).json({message: 'User added successfully !'})}
     } catch(error){
         console.log(error.message);
     }

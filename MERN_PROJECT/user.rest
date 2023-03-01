@@ -1,0 +1,14 @@
+POST http://localhost:3700/users
+Content-Type: application/json
+
+{
+    "Email" : "yassmin@gmail.com",
+    "FirstName":"Yassmin",
+    "Age":"23"
+    
+}
+
+###
+GET http://localhost:3700/api/
+###
+DELETE http://localhost:3127/api/users/3    

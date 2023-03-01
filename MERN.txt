@@ -1,4 +1,7 @@
 ❎ On installe express-generator ➡️ npm install -g express-generator
+	express-generator --> Express-generator est un outil tout en un qui permet de créer rapidement 
+	une application node-js en utilisant la librairie express --> à installer une fois globalement
+
 ❎On créé le projet ➡️ express --no-view MERN_PROJECT
 			   ➡️ cd MERN_PROJECT 
 ❎On fait maintenant ➡️ npm install ➡️ npm start ➡️ localhost:3000
@@ -14,3 +17,51 @@
 ➡️ On peut utiliser mongodb compass au lieu d'utiliser le site web 
 ➡️ Converting circular structure to JSON --> on a oublier d'ajouter le 
 mot clé 'await' (async--> await)
+
+❎ Installer le module validator --> npm i validator
+
+
+
+
+
+
+
+const isEmpty= require("./isEmpty")
+const validator = require("validator")
+
+
+
+module.exports = function ValidateUser(data) {
+    let erros = {}; 
+    // l'objet errors contient tout les objets
+    data.Email = !isEmpty(data.Email) ? data.Email : "";
+    // si data.Email est non nulle --> ? data.Email --> return data.Email, sinon --> : "" --> un chaine vide
+    data.LastName = !isEmpty(data.LastName) ? data.LastName : "" ;
+    data.FirstName = !isEmpty(data.FirstName) ? data.FirstName : "" ;
+    data.Age = !isEmpty(data.Age) ? data.Age : "" ;
+
+    // traiter tout les cas possibles 
+    if( !validator.isEmail(data.Email)){
+        erros.Email="Format Email Required !" ;
+    }
+    // si les champs sont vides --> un message est généré
+    if(validator.isEmpty(data.Email)){
+        erros.Email="Required Email !" ;
+    }
+    if(validator.isEmpty(data.FirstName)){
+        erros.FirstName = "Required FirstName !" ;
+    }
+    if(validator.isEmpty(data.LastName)){
+        erros.LastName="LastName required !" ;
+    }
+    if(validator.isEmpty(data.Age)){
+        erros.Age = "Age required !" ;
+    }
+
+    return{
+        erros,
+        isValid : isEmpty(erros) 
+        // si on n'a pas d'erreurs --> isEmpty retourne True, sinon False
+    }
+
+};

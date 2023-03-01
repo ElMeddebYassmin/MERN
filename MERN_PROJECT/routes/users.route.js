@@ -6,7 +6,7 @@ const router = express.Router()
 router.get('/api',(req,res)=>{
     res.send('work')
 })
-
+ 
 /* ADD USER */
 router.post('/users', AddUser)
 

@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+// biblio .env
 require('dotenv').config()
 
 /* Définition des routes */
